@@ -5,8 +5,23 @@
 // Read ska visa det som sparas i global state.
 // Lägg in Read och Write komponenterna i App-komponenten.
 
+import React from 'react';
+import Write from './Write';
+import Read from './Read';
+import NewContext from './NewContext';
+
 function App() {
-  return <div></div>;
+  const [globalText, setGlobalText] = React.useState('');
+
+  return (
+    <NewContext.Provider value={{ globalText, setGlobalText }}>
+    <div className='App'>
+      <Write />
+      <Read />
+    </div>
+    </NewContext.Provider>
+
+  );
 }
 
 export default App;
